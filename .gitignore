@@ -218,3 +218,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Course project: keep downloaded data and local machine files out of Git
+data/
+.DS_Store
