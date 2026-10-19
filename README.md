@@ -28,7 +28,19 @@ This provides at least twelve interactive controls across two pages. The Fetch p
 
 ### Data Collection and Storage Plan (written by Author #1)
 
-**Thel Nu Zaw will write and commit this section.** It remains reserved for his own data-source, collection, CSV-storage, and country-cache plan.
+**Thel Nu Zaw**
+
+### Data Collection and Storage Plan (written by Author #1)
+
+**Author: Thel Nu Zaw**
+
+I will use Python's `requests` library to retrieve publicly available malicious URL metadata from the URLhaus Community API. The application will authenticate using a free abuse.ch Auth-Key stored in a local environment variable to prevent exposing credentials in the GitHub repository. I will implement the data collection process through the Flask Fetch page, allowing users to select a start date, end date, and threat category or malware tag before retrieving and filtering records. Since the recent URLhaus export covers the past 30 days, date selections will be limited to the available data range. I will also implement error handling for network failures, unsuccessful API responses, and invalid date ranges.
+
+After retrieving the data, I will use pandas to organize the records into a consistent tabular structure containing the URLhaus record ID, defanged URL, date added, threat category, malware tags, URL status, and available host information. I will validate required fields, normalize timestamps to UTC, and remove duplicate records using their unique URLhaus IDs where available. The application will process URL metadata only and will not visit suspicious URLs or download malicious files.
+
+I will store the cleaned records locally as CSV files under `data/records/`, using consistent column names and UTF-8 encoding so they can be accessed by the data analysis component. To support geographic visualization, I will implement a hosting-country lookup process using available host or IP information and cache successful lookups locally under `data/cache/`. Missing or unresolved country information will be labeled as `Unknown`, and cached results will reduce unnecessary repeated requests to external geolocation services.
+
+The Fetch page will display the data retrieval status, the number of records collected, and a paginated preview table. Users will be able to navigate to the Results page after data collection is complete. I will also implement a refresh mechanism that reuses locally stored records when appropriate and respects URLhaus's minimum five-minute refresh interval. Downloaded datasets, cached lookups, and authentication credentials will be excluded from Git, while the repository will include setup instructions and documentation explaining the CSV structure and data collection process.
 
 ### Data Analysis and Visualization Plan (written by Author #2)
 
