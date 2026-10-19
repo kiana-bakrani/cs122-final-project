@@ -15,6 +15,11 @@ An interactive world map and a time-series chart will help users compare geograp
 
 ## Project Outline / Plan
 
+- **Interface:** Build a Flask web interface with a Fetch page owned by Author #1 and a Results page owned by Author #2, with at least ten interactive controls across the two pages.
+- **Data collection and storage (Author #1 — Thel Nu Zaw):** Retrieve URLhaus metadata, organize defanged URL records in local CSV files, and cache hosting-country lookups.
+- **Data analysis (Author #2 — Kiana Bakrani):** Summarize records by country, threat category, and tag; count daily additions; calculate offline percentages; and estimate observed online durations when repeated observations are available.
+- **Visualization and summary storage (Author #2 — Kiana Bakrani):** Create a world map and daily time-series chart, support filtering and plot export, and save summary CSV files locally.
+
 ### Interface Plan
 
 We plan to build a Python Flask application with two pages, one implemented by each author.
