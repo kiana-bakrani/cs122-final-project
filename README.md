@@ -28,10 +28,6 @@ This provides at least twelve interactive controls across two pages. The Fetch p
 
 ### Data Collection and Storage Plan (written by Author #1)
 
-**Thel Nu Zaw**
-
-### Data Collection and Storage Plan (written by Author #1)
-
 **Author: Thel Nu Zaw**
 
 I will use Python's `requests` library to retrieve publicly available malicious URL metadata from the URLhaus Community API. The application will authenticate using a free abuse.ch Auth-Key stored in a local environment variable to prevent exposing credentials in the GitHub repository. I will implement the data collection process through the Flask Fetch page, allowing users to select a start date, end date, and threat category or malware tag before retrieving and filtering records. Since the recent URLhaus export covers the past 30 days, date selections will be limited to the available data range. I will also implement error handling for network failures, unsuccessful API responses, and invalid date ranges.
